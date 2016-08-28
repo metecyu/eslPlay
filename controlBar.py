@@ -294,7 +294,7 @@ class controlBar(QtGui.QMainWindow):
         self.master.mediaObject.stop()
 
         # step1 - play
-        self.master.mediaObject.play()
+        #self.master.mediaObject.play()
         # step2 - pause (can trigger clicked of playOrPauseBtn)
         self.playOrPauseBtn.setChecked(False)
         

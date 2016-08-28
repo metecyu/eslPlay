@@ -58,7 +58,8 @@ class progressSlider(QSlider):
 				new = min
 			self.setValue(new)
 			self.emit(SIGNAL('sliderMoved(int)'), new)
-			
+
+	# yzp: fix the problem of mouse's position in slider 
 	def fixPosition(self,eventX,width):
 		harfWidth = width / 2
 		posX = eventX

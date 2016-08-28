@@ -99,7 +99,7 @@ class MainWindow(QtGui.QMainWindow):
         self.center(1)      
 
          # 打开文件
-        self.openFile(u'nuo.mp3')       
+        self.openFile(u'167.mp3')       
 
 
 
@@ -472,7 +472,7 @@ class AudioFile(object):
     def __init__(self, fileName):
         #fileName = u'D:/pythonWorkspace/XiamiForLinuxProject-master/test.mp3'
         self.fileName = fileName
-        self.filePath = './'+fileName 
+        self.filePath = 'd:/'+fileName	 #'./'+fileName 
         self.time = '00:00'
         self.totalTime = 0
         self.audioInfo(self.filePath)
