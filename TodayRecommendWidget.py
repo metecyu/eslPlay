@@ -11,9 +11,6 @@ class ModelObject(object):
         self.text = text
 
 
-
-
-
 class TodayRecommendWidget(QtGui.QMainWindow):
     '''今日推荐主界面'''
     def __init__(self, parent=None):
@@ -23,22 +20,23 @@ class TodayRecommendWidget(QtGui.QMainWindow):
         self.view = MyQDeclarativeView()
         self.view.setMouseTracking(True)
         ctxt = self.view.rootContext()
-
+        self.currTime = 'master'
+        ctxt.setContextProperty('currTime',self.currTime)
 
         self.view.setSource(QtCore.QUrl.fromLocalFile("ListView.qml"))
         # self.view.setStyleSheet("""border:1px solid red""")
         self.rootObject = self.view.rootObject()
-        self.rootObject.setProperty('globalWidth',1000)
-        self.rootObject.setProperty('globalHeight',180)
+        #self.rootObject.setProperty('globalWidth',1000)
+        #self.rootObject.setProperty('globalHeight',180)
         # self.rootObject.sendClicked.connect(self.onClicked)
 
-        self.view2 = MyQDeclarativeView()
+        #self.view2 = MyQDeclarativeView()
         #self.view2.setSource(QtCore.QUrl.fromLocalFile("todayRecommendBottom.qml"))
         # self.view2.setStyleSheet("""border:1px solid red""")
 
         self.mainLayout = QtGui.QVBoxLayout()
         self.mainLayout.addWidget(self.view)
-        self.mainLayout.addWidget(self.view2)
+        #self.mainLayout.addWidget(self.view2)
         self.mainLayout.setSpacing(0)
         # left top right bottom
         self.mainLayout.setContentsMargins(0,0,0,0)
@@ -67,7 +65,7 @@ class TodayRecommendWidget(QtGui.QMainWindow):
         # ............令人无语的问题，加上自调整后会上下滚动
         # 试着在 ResizeEvent 重置吧
         self.view.setResizeMode(QDeclarativeView.SizeRootObjectToView)
-        self.view2.setResizeMode(QDeclarativeView.SizeRootObjectToView)
+        #self.view2.setResizeMode(QDeclarativeView.SizeRootObjectToView)
 
 
 
@@ -88,7 +86,7 @@ class MyQDeclarativeView(QDeclarativeView):
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
     testWidget = TodayRecommendWidget()
-    testWidget.resize(850,550)
+    testWidget.resize(600,400)
     testWidget.show()
     sys.exit(app.exec_())
 

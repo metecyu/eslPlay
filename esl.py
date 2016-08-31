@@ -11,7 +11,7 @@ from PyQt4.phonon import Phonon
 from controlBar import *
 
 import TodayRecommendWidget
-import dialog
+
 defaultcode = 'utf-8'
 
 
@@ -105,10 +105,10 @@ class MainWindow(QtGui.QMainWindow):
 
 
               # 今日推荐窗口
-        #self.todayRecommendWidget = TodayRecommendWidget.TodayRecommendWidget()
-        #self.contentWidget.setCentralWidget(self.todayRecommendWidget)
-        self.todayRecommendWidget = dialog.Example()
+        self.todayRecommendWidget = TodayRecommendWidget.TodayRecommendWidget()
         self.contentWidget.setCentralWidget(self.todayRecommendWidget)
+        #self.todayRecommendWidget = dialog.Example()
+        #self.contentWidget.setCentralWidget(self.todayRecommendWidget)
         
         # 功能性功能结束
         #self.todayRecommendWidget.setWindowOpacity(0.2)
