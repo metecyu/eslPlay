@@ -105,7 +105,7 @@ class MainWindow(QtGui.QMainWindow):
 
 
               # 今日推荐窗口
-        self.todayRecommendWidget = TodayRecommendWidget.TodayRecommendWidget()
+        self.todayRecommendWidget = TodayRecommendWidget.TodayRecommendWidget(master=self)
         self.contentWidget.setCentralWidget(self.todayRecommendWidget)
         #self.todayRecommendWidget = dialog.Example()
         #self.contentWidget.setCentralWidget(self.todayRecommendWidget)

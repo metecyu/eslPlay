@@ -13,9 +13,9 @@ class ModelObject(object):
 
 class TodayRecommendWidget(QtGui.QMainWindow):
     '''今日推荐主界面'''
-    def __init__(self, parent=None):
+    def __init__(self,master, parent=None):
         super(TodayRecommendWidget, self).__init__()
-
+        self.master = master
         # self.view = QDeclarativeView()
         self.view = MyQDeclarativeView()
         self.view.setMouseTracking(True)
@@ -47,15 +47,7 @@ class TodayRecommendWidget(QtGui.QMainWindow):
 
         self.mainWidget = QtGui.QWidget()
         self.mainWidget.setMouseTracking(True)
-        self.setStyleSheet("""
-            QDeclarativeView
-            {
-                border-top:     0px solid #adadad;
-                border-left:    0px solid #919191;
-                border-right:   1px solid #919191;
-                border-bottom:  0px solid #919191;
-            }
-            """)
+
         self.setCentralWidget(self.mainWidget)
         self.mainWidget.setLayout(self.mainLayout)
 
@@ -85,7 +77,7 @@ class MyQDeclarativeView(QDeclarativeView):
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
-    testWidget = TodayRecommendWidget()
+    testWidget = TodayRecommendWidget(master=app)
     testWidget.resize(600,400)
     testWidget.show()
     sys.exit(app.exec_())
