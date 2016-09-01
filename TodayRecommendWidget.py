@@ -20,12 +20,18 @@ class TodayRecommendWidget(QtGui.QMainWindow):
         self.view = MyQDeclarativeView()
         self.view.setMouseTracking(True)
         ctxt = self.view.rootContext()
-        self.currTime = 'master'
-        ctxt.setContextProperty('currTime',self.currTime)
+        #self.currTime = 'master'
+        
+        # ctxt.setContextProperty('currTime','2')
 
         self.view.setSource(QtCore.QUrl.fromLocalFile("ListView.qml"))
+
+
         # self.view.setStyleSheet("""border:1px solid red""")
         self.rootObject = self.view.rootObject()
+        self.master.rootObject = self.rootObject
+        self.master.rootObject.setProperty('mediaCurrTime',0)
+
         #self.rootObject.setProperty('globalWidth',1000)
         #self.rootObject.setProperty('globalHeight',180)
         # self.rootObject.sendClicked.connect(self.onClicked)

@@ -23,6 +23,8 @@ defaultcode = 'utf-8'
 class MainWindow(QtGui.QMainWindow):
     def __init__(self,parent=None):
         super(MainWindow,self).__init__()
+         
+
         # mp3播放器
         self.mediaObject = Phonon.MediaObject(self)   #实例化一个媒体对象
         self.mediaObject.setTickInterval(10) # set this value If you want to signal tick(qint64) Event

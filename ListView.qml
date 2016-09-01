@@ -1,5 +1,6 @@
 import QtQuick 1.0
 ListView {
+    property string mediaCurrTime;
     width: parent.width; height: parent.width
     model: Less {}
     snapMode : ListView.SnapToItem 
@@ -26,7 +27,8 @@ ListView {
                         anchors.fill: parent
                         onClicked: {
                             console.log('section time :'+timeStart)
-                            console.log('currTime time :'+currTime)
+                            console.log('mediaCurrTime time :'+mediaCurrTime)
+                            
                             
                             if (!contentText.activeFocus) {
                                 contentText.forceActiveFocus();
@@ -41,15 +43,15 @@ ListView {
                     states: [
                         State {
                             name: "wide text"
-                            when: contentText.text.length > 40
+                            when: (mediaCurrTime >= timeStart) & (mediaCurrTime < timeEnd)
                             PropertyChanges {
                                 target: contentText
-                                font.pointSize: 14
+                                font.pointSize: 18
                             }
                         },
                         State {
                             name: "not wide text"
-                            when: contentText.text.length <= 40
+                            when: !((mediaCurrTime >= timeStart) & (mediaCurrTime < timeEnd))
                             PropertyChanges {
                                 target: contentText
                                 font.pointSize: 14

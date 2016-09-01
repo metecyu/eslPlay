@@ -277,6 +277,7 @@ class controlBar(QtGui.QMainWindow):
         self.songTimeLabel.setText(t.toString("mm:ss"))
         self.seekslIder.setValue(time)
         #print time
+        self.master.rootObject.setProperty('mediaCurrTime',time)
 
 
     def sliderMovedToTime(self, time):
